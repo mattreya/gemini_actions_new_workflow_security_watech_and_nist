@@ -61,7 +61,8 @@ Workflows that handle deployment, release management, or publishing tasks.
 
 Unique or domain-specific workflows that showcase creative uses of Gemini CLI.
 
-*No workflows yet. Be the first to contribute!*
+- [NIST LLM Agent Guidelines Compliance](./nist-llm-agent-guidelines.yml)
+- [WaTech Application Development Workflow](./watech-application-uses.yml)
 
 ## Featured Workflows
 

@@ -1,0 +1,60 @@
+
+name: NIST LLM Agent Guidelines Compliance
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  code_security_and_quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Gemini CLI
+        uses: ./
+        with:
+          # Assuming GEMINI_API_KEY is set as a GitHub Secret
+          gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Analyze code for security vulnerabilities (NIST SSDF)
+        run: |
+          echo "Running hypothetical gemini-cli command for security analysis..."
+          # This command is illustrative. Replace with actual gemini-cli security analysis command if available.
+          gemini-cli analyze-code --security-scan --output-format sarif > security_report.sarif
+          # Further steps could involve uploading the SARIF report to GitHub Security tab
+
+      - name: Check for coding standard compliance (NIST SSDF)
+        run: |
+          echo "Running hypothetical gemini-cli command for coding standards..."
+          # This command is illustrative. Replace with actual gemini-cli linting/style check command.
+          gemini-cli lint --config .gemini-lint.yml
+
+  documentation_and_risk_review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Gemini CLI
+        uses: ./
+        with:
+          gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Generate/Update documentation for changes (NIST AI RMF)
+        run: |
+          echo "Running hypothetical gemini-cli command to generate documentation..."
+          # This command is illustrative. Replace with actual gemini-cli doc generation command.
+          gemini-cli generate-docs --for-changes --output-dir docs/generated
+
+      - name: Summarize changes for risk assessment (NIST AI RMF: GAI Profile)
+        run: |
+          echo "Running hypothetical gemini-cli command to summarize changes for risk assessment..."
+          # This command is illustrative. Replace with actual gemini-cli command for change summary.
+          git diff HEAD^ HEAD | gemini-cli summarize-diff --context "LLM agent changes" > risk_summary.md
+          # Further steps could involve posting this summary as a PR comment or to a risk management system.
