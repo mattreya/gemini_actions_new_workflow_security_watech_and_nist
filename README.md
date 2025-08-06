@@ -6,6 +6,10 @@
 
 Use it to perform GitHub pull request reviews, triage issues, perform code analysis and modification, and more using [Gemini] conversationally (e.g., `@gemini-cli fix this issue`) directly inside your GitHub repositories.
 
+**For Google employees:** New workflow examples demonstrating NIST LLM Agent Guidelines and WaTech application uses can be found in the `examples/workflows/` directory:
+- `nist-llm-agent-guidelines.yml`
+- `watech-application-uses.yml`
+
 - [run-gemini-cli](#run-gemini-cli)
   - [Overview](#overview)
   - [Features](#features)
